@@ -19,15 +19,16 @@ class String(CommonIntString):
         return str(self.length)
 
 
-def validate_even(value, min):
-    if value % 2 != 0:
-        raise ValidationError('%s is not an even number' % value)
+# def validate_even(value, min):
+#     if value % 2 != 0:
+#         raise ValidationError('%s is not an even number' % value)
 
 
 class Integer(CommonIntString):
     min = models.BigIntegerField()
-    # max = models.BigIntegerField(validators=[validate_even, self.min])
     max = models.BigIntegerField()
+    # max = models.BigIntegerField(validators=[validate_even, self.min])
+    
 
     def __str__(self):  # __unicode__ on Python 2
         return self.min + '' + self.mandatory
